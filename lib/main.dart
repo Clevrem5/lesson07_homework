@@ -30,6 +30,7 @@ class _HomePageTenState extends State<HomePageTen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       extendBody: true,
       backgroundColor: const Color(0xFF1C0F0D),
       appBar: AppBar(
@@ -112,13 +113,12 @@ class _HomePageTenState extends State<HomePageTen> {
           ),
         ], //actions
         bottom: const AppBarBottom(),
-
       ),
-
       body: ListView(
+        padding: const EdgeInsets.only(bottom: 150),
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28),
+            padding: const EdgeInsets.only(left: 28, top: 15),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -257,7 +257,8 @@ class _HomePageTenState extends State<HomePageTen> {
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(14)),
                                   child: Image(
-                                    image: AssetImage("assets/lunch.png"),
+                                    image:
+                                        AssetImage("assets/chicken_burger.png"),
                                     width: 169,
                                     height: 162,
                                     fit: BoxFit.cover,
@@ -468,7 +469,9 @@ class _HomePageTenState extends State<HomePageTen> {
                         fontSize: 20,
                       ),
                     ),
-                      SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -487,7 +490,8 @@ class _HomePageTenState extends State<HomePageTen> {
                               ),
                             ),
                           ],
-                        ), Column(
+                        ),
+                        Column(
                           children: [
                             Image(
                               image: AssetImage("assets/andrew.png"),
@@ -502,7 +506,8 @@ class _HomePageTenState extends State<HomePageTen> {
                               ),
                             ),
                           ],
-                        ), Column(
+                        ),
+                        Column(
                           children: [
                             Image(
                               image: AssetImage("assets/emily.png"),
@@ -517,7 +522,8 @@ class _HomePageTenState extends State<HomePageTen> {
                               ),
                             ),
                           ],
-                        ), Column(
+                        ),
+                        Column(
                           children: [
                             Image(
                               image: AssetImage("assets/jessico.png"),
@@ -535,8 +541,6 @@ class _HomePageTenState extends State<HomePageTen> {
                         ),
                       ],
                     ),
-
-
                   ],
                 )
               ],
@@ -659,29 +663,33 @@ class AppBarBottom extends StatelessWidget implements PreferredSizeWidget {
         fontSize: 16,
       ),
     ),
+    const Text(
+      "Milk",
+      style: TextStyle(
+        color: Color(0xFFFD5D69),
+        fontSize: 16,
+      ),
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25),
-      child: SizedBox(
-        height: 25,
-        width: double.infinity,
-        child: ListView.separated(
-          scrollDirection: Axis.horizontal,
-          itemBuilder: (context, index) => items[index],
-          separatorBuilder: (context, index) {
-            if (index == 0) {
-              return const SizedBox(width: 40);
-            } else if (index == items.length + 5) {
-              return const SizedBox(width: 40);
-            } else {
-              return const SizedBox(width: 40);
-            }
-          },
-          itemCount: items.length,
-        ),
+    return SizedBox(
+      height: 25,
+      width: double.infinity,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) => items[index],
+        separatorBuilder: (context, index) {
+          if (index == 0) {
+            return const SizedBox(width: 40);
+          } else if (index == items.length + 5) {
+            return const SizedBox(width: 40);
+          } else {
+            return const SizedBox(width: 40);
+          }
+        },
+        itemCount: items.length,
       ),
     );
   }
